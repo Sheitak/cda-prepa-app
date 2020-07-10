@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Learner index{% endblock %}
+
+{% block body %}
+    <h1>Learner index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Sex</th>
+                <th>Age</th>
+                <th>Skills</th>
+                <th>Promotion</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for learner in learners %}
+            <tr>
+                <td>{{ learner.id }}</td>
+                <td>{{ learner.name }}</td>
+                <td>{{ learner.username }}</td>
+                <td>{{ learner.sex }}</td>
+                <td>{{ learner.age }}</td>
+                <td>{{ learner.skills }}</td>
+                <td>{{ learner.promotion.name }}</td>
+                <td>
+                    <a href="{{ path('learner_show', {'id': learner.id}) }}">show</a>
+                    <a href="{{ path('learner_edit', {'id': learner.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('learner_new') }}">Create new</a>
+{% endblock %}

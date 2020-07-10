@@ -2,11 +2,41 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}BewVeD{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ path('home') }}">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ path('learner_new') }}">Add Learners</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ path('learner_index') }}">Learners List</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ path('learner_groups') }}">Create Groups</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ path('promotion_new') }}">Add Promotions</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ path('promotion_index') }}">Promotions List</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
     </body>
 </html>

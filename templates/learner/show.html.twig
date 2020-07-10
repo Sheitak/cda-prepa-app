@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Learner{% endblock %}
+
+{% block body %}
+    <h1>Learner</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ learner.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ learner.name }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ learner.username }}</td>
+            </tr>
+            <tr>
+                <th>Sex</th>
+                <td>{{ learner.sex }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ learner.age }}</td>
+            </tr>
+            <tr>
+                <th>Skills</th>
+                <td>{{ learner.skills }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <a href="{{ path('learner_index') }}">
+        <button class="btn btn-primary">back to list</button>
+    </a>
+    
+
+    <a href="{{ path('learner_edit', {'id': learner.id}) }}">edit</a>
+
+    {{ include('learner/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Groups{% endblock %}
+
+{% block body %}
+    <h1>Create new Groups</h1>
+    <div class="px-5">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Groups Number</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter the number of groups">
+        </div>
+        <button class="btn btn-primary">{{ button_label|default('Create Groups') }}</button>
+        {{ form_end(form) }}
+    </div>
+    <br/>
+    <div class="card mx-5">
+    <h5>Group N°1</h5>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Sex</th>
+                    <th>Age</th>
+                    <th>Skills</th>
+                    <th>Promotion</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for createGroup in createGroup %}
+                <tr>
+                    <td>{{ createGroup.id }}</td>
+                    <td>{{ createGroup.name }}</td>
+                    <td>{{ createGroup.username }}</td>
+                    <td>{{ createGroup.sex }}</td>
+                    <td>{{ createGroup.age }}</td>
+                    <td>{{ createGroup.skills }}</td>
+                    <td>{{ createGroup.promotion.name }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

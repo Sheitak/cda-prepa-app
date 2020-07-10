@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Learner{% endblock %}
+
+{% block body %}
+    <h1>Edit Learner</h1>
+
+    {{ include('learner/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('learner_index') }}">back to list</a>
+
+    {{ include('learner/_delete_form.html.twig') }}
+{% endblock %}
